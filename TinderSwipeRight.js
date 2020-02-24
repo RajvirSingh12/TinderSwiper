@@ -9,7 +9,7 @@ const {username, password} = require("./credentials");
         await page.goto("https://tinder.com/");
         await context.overridePermissions("https://tinder.com/", ["geolocation"]);//allow location
 
-        await page.setGeolocation({latitude:40.580535, longitude:-74.2291945});//change ur location
+        await page.setGeolocation({latitude:####, longitude:#####});//change ur location using coordinates
         await page._client.send("Emulation.clearDeviceMetricsOverride")//fix browser to full window display
         await page.waitForXPath('(//*[@id="modal-manager"]/div/div/div/div/div[3]/div[2]/button)') //use xPath to to find location of FB login button
 
@@ -25,9 +25,9 @@ const {username, password} = require("./credentials");
         await fbPopup.waitForSelector("#email");
         
         await fbPopup.click("#email");//id is email
-        await fbPopup.keyboard.type(username);
+        await fbPopup.keyboard.type(username);//enter your username as a string or stored var
         await fbPopup.click("#pass");//id is pass
-        await fbPopup.keyboard.type(password);
+        await fbPopup.keyboard.type(password);//enter your password as a string or stored var
 
         await fbPopup.waitForSelector("#loginbutton");
         await fbPopup.click("#loginbutton");
